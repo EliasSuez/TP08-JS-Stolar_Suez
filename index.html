@@ -6,7 +6,29 @@
       <title>Document</title>
    </head>
    <body>
-      <div id="resultado"></div>
+      <div id="resultado">
+      </div>
+
+      <h1>Ingresa los nombres, separa por coma</h1>
+      <form action="" id="nombres">
+         <input type="text" name="" >
+         <input type="submit" value="enviar">
+      </form>
+      
+      <h1>Reemplazar Palabra en Cadena</h1>
+      <form id="reemplazoForm">
+          <label for="cadena">Cadena de texto:</label><br>
+          <input type="text" id="cadena" placeholder="Ingresa tu cadena de texto" required><br>
+          
+          <label for="palabraOriginal">Palabra a reemplazar:</label><br>
+          <input type="text" id="palabraOriginal" placeholder="Ingresa la palabra a reemplazar" required><br>
+          
+          <label for="palabraReemplazo">Nueva palabra:</label><br>
+          <input type="text" id="palabraReemplazo" placeholder="Ingresa la nueva palabra" required><br>
+          
+          <input type="submit" value="Reemplazar">
+      </form>
+
       <script src="script/ejercicios.js" type="module"></script>
    </body>
 </html>

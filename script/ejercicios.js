@@ -61,11 +61,38 @@ const TrianguloAsterisco = () => {
       console.log(punto.repeat(i))
    }
    for (let i = 1; i <= totalLinea; i++) {
-      let barras = barraMedia.repeat(totalLinea - i);  // Guiones que disminuyen en cada línea
-      let puntos = punto.repeat(i * 2 - 1);             // Estrellas que aumentan (1, 3, 5, ...)
-      console.log(`${barras}${puntos}${barras}`);       // Combinar guiones y estrellas
+      let barras = barraMedia.repeat(totalLinea - i);
+      let puntos = punto.repeat(i * 2 - 1);             
+      console.log(`${barras}${puntos}${barras}`);       
    }
 }
+
+const NombresConA = () => {
+
+   const texto = document.getElementById('nombres').value; 
+   const nombres = texto.split(',');  
+   
+   const nombresConA = nombres.filter(nombre => nombre.charAt(0).toUpperCase() === 'A');
+   
+   const resultado = document.getElementById('resultado');
+   resultado.innerHTML = `<p>${nombresConA.join(', ')}</p>`;
+   
+}
+
+const Reemplazar = () => {
+   
+   const cadena = document.getElementById('cadena').value;
+   const palabraOriginal = document.getElementById('palabraOriginal').value;
+   const palabraReemplazo = document.getElementById('palabraReemplazo').value;
+
+   const resultadoCadena = cadena.replace(palabraOriginal, palabraReemplazo);
+
+   const resultadoDiv = document.getElementById('resultado');
+   resultadoDiv.innerHTML = `<p>Resultado: ${resultadoCadena}</p>`;
+}
+
+// Reemplazar() -------------REVISAR
+// NombresConA(); ------------REVISAR
 
 // TrianguloAsterisco();
 // console.log(dobleNumeros([1,2,3,4,5]))
