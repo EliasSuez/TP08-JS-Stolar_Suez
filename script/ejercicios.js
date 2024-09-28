@@ -47,10 +47,28 @@ const crearObjeto = () => {
    }
 };
 
-dobleNumeros = (array) =>{
-
+const dobleNumeros = (array) =>{
+   return array.map((numero) => {
+      return numero * 2;
+   } )
 } 
 
+const TrianguloAsterisco = () => {
+   const punto = "*";
+   const totalLinea = 5;
+   const barraMedia = "-";
+   for (let i = 1; i < 6; i++) {
+      console.log(punto.repeat(i))
+   }
+   for (let i = 1; i <= totalLinea; i++) {
+      let barras = barraMedia.repeat(totalLinea - i);  // Guiones que disminuyen en cada línea
+      let puntos = punto.repeat(i * 2 - 1);             // Estrellas que aumentan (1, 3, 5, ...)
+      console.log(`${barras}${puntos}${barras}`);       // Combinar guiones y estrellas
+   }
+}
+
+// TrianguloAsterisco();
+// console.log(dobleNumeros([1,2,3,4,5]))
 // crearObjeto();
 // calculadoraEdad();
 // pedirfruta();
