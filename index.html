@@ -3,14 +3,26 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
+      <title>TP08-Suez_Stolar</title>
+
+      <style>
+         *{
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+         }
+         .corta{
+            width: 40%;
+            border: 1px solid blue;
+         }
+      </style>
    </head>
    <body>
       <div id="resultado"></div>
-
+      <h1>Resultado</h1>
+      <hr>
       <h1>Ingresa los nombres, separa por coma</h1>
       <input type="text" name="" id="nombres" />
-
+      <hr class="corta">
       <h1>Reemplazar Palabra en Cadena</h1>
       <form id="reemplazoForm">
          <label for="cadena">Cadena de texto:</label><br />
@@ -39,7 +51,7 @@
 
          <input type="submit" value="Reemplazar" />
       </form>
-
+      <hr class="corta">
       <br>
       <h1>Cortar texto</h1>
       <h2>Texto</h2>
@@ -47,7 +59,7 @@
       <h2>Numero</h2>
       <input type="number" id="numero">
 
-
+      <hr class="corta">
       <br>
       <h1>String con separador</h1>
       <h2>Ingrese un texto separador por comas</h2>

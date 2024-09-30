@@ -1,5 +1,7 @@
-import { stringToDate } from './utils.js';
+import { stringToDate, sumaElementosRegExp } from './utils.js';
+
 const resultadoDiv = document.getElementById('resultado');
+
 const calculadoraEdad = () => {
    const nombre = prompt('Ingrese su nombre');
    const fecha = prompt('Ingrese fecha');
@@ -113,13 +115,14 @@ const StringSeparador = () => {
 const CalculadoraRecaudacion = () => {
    const regExp = /:(\d+(.\d+)?)/g;
    const texto = document.getElementById('cadenaTexto');
-   texto.addEventListener('input', () => {
-      const suma = texto.value
-         .match(regExp)
-         .map((e) => e.substring(1))
-         .reduce((a, b) => parseFloat(a) + parseFloat(b));
-      resultadoDiv.innerHTML = `<p>${suma}</p>`;
-   });
+   texto.addEventListener(
+      'input',
+      () =>
+         (resultadoDiv.innerHTML = `<p>${sumaElementosRegExp(
+            texto.value,
+            regExp
+         )}</p>`)
+   );
 };
 
 // CalculadoraRecaudacion();
