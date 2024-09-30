@@ -1,5 +1,5 @@
 import { stringToDate } from './utils.js';
-
+const resultadoDiv = document.getElementById('resultado');
 const calculadoraEdad = () => {
    const nombre = prompt('Ingrese su nombre');
    const fecha = prompt('Ingrese fecha');
@@ -47,53 +47,86 @@ const crearObjeto = () => {
    }
 };
 
-const dobleNumeros = (array) =>{
+const dobleNumeros = (array) => {
    return array.map((numero) => {
       return numero * 2;
-   } )
-} 
+   });
+};
 
 const TrianguloAsterisco = () => {
-   const punto = "*";
+   const punto = '*';
    const totalLinea = 5;
-   const barraMedia = "-";
+   const barraMedia = '-';
    for (let i = 1; i < 6; i++) {
-      console.log(punto.repeat(i))
+      console.log(punto.repeat(i));
    }
    for (let i = 1; i <= totalLinea; i++) {
       let barras = barraMedia.repeat(totalLinea - i);
-      let puntos = punto.repeat(i * 2 - 1);             
-      console.log(`${barras}${puntos}${barras}`);       
+      let puntos = punto.repeat(i * 2 - 1);
+      console.log(`${barras}${puntos}${barras}`);
    }
-}
+};
+const texto = document.getElementById('nombres');
 
 const NombresConA = () => {
+   const nombres = texto.value.split(',');
+   const nombresConA = nombres.filter(
+      (nombre) => nombre.charAt(0).toUpperCase() === 'A'
+   );
+   resultadoDiv.innerHTML = `<p>${nombresConA.join(', ')}</p>`;
+};
 
-   const texto = document.getElementById('nombres').value; 
-   const nombres = texto.split(',');  
-   
-   const nombresConA = nombres.filter(nombre => nombre.charAt(0).toUpperCase() === 'A');
-   
-   const resultado = document.getElementById('resultado');
-   resultado.innerHTML = `<p>${nombresConA.join(', ')}</p>`;
-   
-}
+texto.addEventListener('input', NombresConA);
 
 const Reemplazar = () => {
-   
-   const cadena = document.getElementById('cadena').value;
-   const palabraOriginal = document.getElementById('palabraOriginal').value;
-   const palabraReemplazo = document.getElementById('palabraReemplazo').value;
+   const form = document.getElementById('reemplazoForm');
+   form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const cadena = document.getElementById('cadena').value;
+      const palabraOriginal = document.getElementById('palabraOriginal').value;
+      const palabraReemplazo =
+         document.getElementById('palabraReemplazo').value;
+      const resultadoCadena = cadena.replace(palabraOriginal, palabraReemplazo);
+      resultadoDiv.innerHTML = `<p>Resultado: ${resultadoCadena}</p>`;
+   });
+};
 
-   const resultadoCadena = cadena.replace(palabraOriginal, palabraReemplazo);
+const CortarTexto = () => {
+   const texto = document.getElementById('texto');
+   const numero = document.getElementById('numero');
 
-   const resultadoDiv = document.getElementById('resultado');
-   resultadoDiv.innerHTML = `<p>Resultado: ${resultadoCadena}</p>`;
-}
+   numero.addEventListener('input', () => {
+      const resultado = texto.value.substr(0, numero.value);
+      resultadoDiv.innerHTML = `<p>Resultado: ${resultado}</p>`;
+   });
+};
 
-// Reemplazar() -------------REVISAR
-// NombresConA(); ------------REVISAR
+const StringSeparador = () => {
+   const texto = document.getElementById('cadenaTexto');
 
+   texto.addEventListener('input', () => {
+      const nombres = texto.value.replaceAll(',', '-');
+      resultadoDiv.innerHTML = `<p>${nombres}</p>`;
+   });
+};
+
+const CalculadoraRecaudacion = () => {
+   const regExp = /:(\d+(.\d+)?)/g;
+   const texto = document.getElementById('cadenaTexto');
+   texto.addEventListener('input', () => {
+      const suma = texto.value
+         .match(regExp)
+         .map((e) => e.substring(1))
+         .reduce((a, b) => parseFloat(a) + parseFloat(b));
+      resultadoDiv.innerHTML = `<p>${suma}</p>`;
+   });
+};
+
+// CalculadoraRecaudacion();
+// StringSeparador();
+// CortarTexto();
+// Reemplazar();
+// NombresConA();
 // TrianguloAsterisco();
 // console.log(dobleNumeros([1,2,3,4,5]))
 // crearObjeto();
